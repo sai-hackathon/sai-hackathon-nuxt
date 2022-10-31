@@ -3,6 +3,7 @@
     <img class="header-img" src="https://picsum.photos/seed/picsum/1000/1000" />
     <div class="user-profile">
       <img class="user-icon" src="https://picsum.photos/id/1/5616/3744" />
+      <NuxtLink class="button-edit" to="/user/edit"> 🖋 </NuxtLink>
       <div class="user-name">sanami</div>
       <div class="user-id">sanamiev</div>
       <div class="profile-text">よろしくお願いします💻</div>
@@ -34,5 +35,10 @@
 }
 .profile-text {
   padding-top: 2em;
+}
+.button-edit {
+  border: 0.1em solid white;
+  padding: 0.3em;
+  border-radius: 0.2em;
 }
 </style>
