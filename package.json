@@ -1,5 +1,9 @@
 {
   "private": true,
+  "engines": {
+    "yarn": "1.x",
+    "node": "16.x"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
