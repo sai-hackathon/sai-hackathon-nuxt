@@ -1,6 +1,11 @@
 <template>
   <div class="default-layout">
-    <AppHeader class="the-header" />
+    <AppHeader></AppHeader>
     <slot />
   </div>
 </template>
+<script>
+export default {
+  auth: false
+};
+</script>

@@ -10,6 +10,9 @@
     </div>
   </div>
 </template>
+<script setup lang="ts">
+import axios from 'axios';
+</script>
 <style scoped>
 .header-img {
   width: 100vw;

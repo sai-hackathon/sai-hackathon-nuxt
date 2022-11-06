@@ -13,24 +13,23 @@
         class="short-text"
       ></input-short-text> -->
       <input-long-text
-        v-model:longText="user.intro"
+        v-model:longText="user.description"
         class="long-text"
       ></input-long-text>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import { idText } from 'typescript';
 import { ref, reactive } from 'vue';
 class User {
   name: string;
   // id: string;
-  intro: string;
+  description: string;
 }
 const user = reactive<User>({
   name: 'sanami',
   // id: '89dabiup87',
-  intro: 'よろしくお願いします😊'
+  description: 'よろしくお願いします😊'
 });
 </script>
 <style scoped>

@@ -2,7 +2,8 @@
   <div class="the-header">
     <NuxtLink to="/" class="header-sai"> Sai </NuxtLink>
     <div class="header-icons">
-      <NuxtLink class="button-sign-in" to="/signin"> Sign in </NuxtLink>
+      <button class="button-sign" @click="sign">Sign in</button>
+      <button class="button-sign" @click="sign">Sign in</button>
     </div>
   </div>
 </template>
