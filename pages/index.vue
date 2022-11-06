@@ -74,17 +74,13 @@ export default {
         method: 'GET',
         url: 'http://18.183.118.0:3000/auth/nonce/' + this.walletAddress
       };
-      axios
-        .request(options)
-        .then(function (response) {
-          console.log(response);
-          console.log(response.data.nonce);
-          return response.data.nonce || '';
-        })
-        .catch(function (error) {
-          console.error(error);
-          return;
-        });
+      try {
+        const response = await axios.request(options);
+        return response.data.nonce || '';
+      } catch (error) {
+        console.error(error);
+        return;
+      }
     },
 
     // balance (example call method) (not used)
