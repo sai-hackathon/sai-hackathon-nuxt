@@ -7,6 +7,7 @@
       <div class="user-name">sanami</div>
       <div class="user-address">hiohdajkljadiodakljlkj</div>
       <div class="profile-text">よろしくお願いします💻</div>
+      {{ this.$route.params.address }}
     </div>
     <BarChart></BarChart>
   </div>
@@ -21,7 +22,7 @@ export default {
     occupation: ''
   }),
   mounted() {
-    this.address = this.$router.currentRoute.params.address;
+    this.address = this.$route.params.address;
     var options = {
       method: 'GET',
       url: 'http://18.183.118.0:3000/user/info/' + this.address,
