@@ -15,7 +15,10 @@
 import axios from 'axios';
 export default {
   data: () => ({
-    address: ''
+    address: '',
+    name: '',
+    profileText: '',
+    occupation: ''
   }),
   mounted() {
     this.address = this.$router.currentRoute.params.address;
@@ -23,7 +26,7 @@ export default {
       method: 'GET',
       url: 'http://18.183.118.0:3000/user/info/' + this.address,
       params: {
-        token: store.state.token //jwtTokenをいれたい
+        token: this.$store.state.token //jwtTokenをいれたい
       },
       headers: { Authorization: 'Bearer ' }
     };

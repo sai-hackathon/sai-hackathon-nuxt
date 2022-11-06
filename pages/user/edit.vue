@@ -5,34 +5,30 @@
       <img class="user-icon" src="https://picsum.photos/id/237/200/300" />
 
       <input-short-text
-        v-model:shortText="user.name"
+        v-model:shortText="username"
         class="short-text"
       ></input-short-text>
       <input-short-text
-        v-model:shortText="user.address"
+        v-model:shortText="address"
         class="short-text"
       ></input-short-text>
       <input-long-text
-        v-model:longText="user.description"
+        v-model:longText="profileText"
         class="long-text"
       ></input-long-text>
     </div>
     <BarChart></BarChart>
   </div>
 </template>
-<script setup lang="ts">
-import { stringLiteral } from '@babel/types';
-import { ref, reactive } from 'vue';
-class User {
-  name: string;
-  address: string;
-  description: string;
-}
-const user = reactive<User>({
-  name: 'sanami',
-  address: 'sasadaoihpiodh8yp89ywe',
-  description: 'よろしくお願いします😊'
-});
+<script>
+export default {
+  data: () => ({
+    address: '',
+    name: '',
+    profileText: '',
+    occupation: ''
+  })
+};
 </script>
 <style scoped>
 .header-img {
