@@ -3,7 +3,6 @@
     <img class="header-img" src="https://picsum.photos/seed/picsum/200/300" />
     <div class="user-profile">
       <img class="user-icon" src="https://picsum.photos/id/237/200/300" />
-
       <input-short-text
         v-model:shortText="username"
         class="short-text"

@@ -5,9 +5,8 @@
       <img class="user-icon" src="https://picsum.photos/id/237/200/300" />
       <NuxtLink class="button-edit" to="/user/edit"> 🖋 </NuxtLink>
       <div class="user-name">sanami</div>
-      <div class="user-address">hiohdajkljadiodakljlkj</div>
+      <div class="user-address">{{ $route.params.address }}</div>
       <div class="profile-text">よろしくお願いします💻</div>
-      {{ $route.params.address }}
     </div>
     <BarChart></BarChart>
   </div>
@@ -121,6 +120,7 @@ export default {
 }
 .button-edit {
   border: 0.1em solid var(--color-background);
+  text-decoration: none;
   padding: 0.3em;
   border-radius: 0.2em;
 }

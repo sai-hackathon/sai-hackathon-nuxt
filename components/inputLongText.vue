@@ -20,6 +20,6 @@ defineEmits(['update:longText']);
   display: block;
   font-size: 1em;
   padding: 1em;
-  border: 0.1em solid white;
+  border: 0.1em solid var(--color-darknight);
 }
 </style>

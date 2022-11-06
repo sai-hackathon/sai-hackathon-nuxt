@@ -3,6 +3,10 @@
     <img class="header-img" src="../static/header.jpg" />
 
     <div class="center">
+      <div class="description1">
+        The Most Reliable Workers’ SBT in the World
+      </div>
+      <div class="description2">得意を中心に生きていくための SBTをMint</div>
       <button class="sign-button" @click="sign">sign</button>
     </div>
     <img class="header-img" src="../static/people.jpg" />
@@ -217,6 +221,7 @@ export default {
   width: 5em;
   font-size: 14px;
   color: rgb(255, 255, 255);
+  margin: 2em;
 }
 
 .sign-button:hover {
@@ -227,5 +232,6 @@ export default {
 }
 .center {
   text-align: center;
+  font-size: 1.5em;
 }
 </style>

@@ -22,6 +22,6 @@ defineEmits(['update:shortText']);
   border-radius: 1em;
   font-size: 1em;
   display: block;
-  border: 0.1em solid white;
+  border: 0.1em solid var(--color-darknight);
 }
 </style>
