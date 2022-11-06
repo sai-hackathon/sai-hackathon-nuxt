@@ -5,13 +5,38 @@
       <img class="user-icon" src="https://picsum.photos/id/1/5616/3744" />
       <NuxtLink class="button-edit" to="/user/edit"> 🖋 </NuxtLink>
       <div class="user-name">sanami</div>
-      <div class="user-id">sanamiev</div>
+      <div class="user-address">hiohdajkljadiodakljlkj</div>
       <div class="profile-text">よろしくお願いします💻</div>
     </div>
+    <BarChart></BarChart>
   </div>
 </template>
-<script setup lang="ts">
+<script>
 import axios from 'axios';
+export default {
+  data: () => ({
+    address: ''
+  }),
+  mounted() {
+    this.address = this.$router.currentRoute.params.address;
+    var options = {
+      method: 'GET',
+      url: 'http://18.183.118.0:3000/user/info/' + this.address,
+      params: {
+        token: store.state.token //jwtTokenをいれたい
+      },
+      headers: { Authorization: 'Bearer ' }
+    };
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
+};
 </script>
 <style scoped>
 .header-img {

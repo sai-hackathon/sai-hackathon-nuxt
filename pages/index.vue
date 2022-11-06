@@ -146,7 +146,8 @@ export default {
           );
         })
         .then((res) => {
-          // this.$store.commit('setToken', res.data?.token || '');
+          // store jwt token
+          this.$store.commit('setToken', res.data?.token || '');
           this.$router.push('/transaction');
           console.info(res.data?.token);
         })

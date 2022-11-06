@@ -1,34 +1,36 @@
 <template>
   <div>
-    <img class="header-img" src="https://picsum.photos/seed/picsum/1000/1000" />
+    <img class="header-img" src="https://picsum.photos/seed/picsum/200/300" />
     <div class="user-profile">
-      <img class="user-icon" src="https://picsum.photos/id/1/5616/3744" />
+      <img class="user-icon" src="https://picsum.photos/id/237/200/300" />
 
       <input-short-text
         v-model:shortText="user.name"
         class="short-text"
       ></input-short-text>
-      <!-- <input-short-text
-        v-model:shortText="user.id"
+      <input-short-text
+        v-model:shortText="user.address"
         class="short-text"
-      ></input-short-text> -->
+      ></input-short-text>
       <input-long-text
         v-model:longText="user.description"
         class="long-text"
       ></input-long-text>
     </div>
+    <BarChart></BarChart>
   </div>
 </template>
 <script setup lang="ts">
+import { stringLiteral } from '@babel/types';
 import { ref, reactive } from 'vue';
 class User {
   name: string;
-  // id: string;
+  address: string;
   description: string;
 }
 const user = reactive<User>({
   name: 'sanami',
-  // id: '89dabiup87',
+  address: 'sasadaoihpiodh8yp89ywe',
   description: 'よろしくお願いします😊'
 });
 </script>
