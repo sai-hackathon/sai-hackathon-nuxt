@@ -1,17 +1,8 @@
 <template>
   <div class="the-header">
     <NuxtLink to="/" class="header-sai"> Sai </NuxtLink>
-    <div class="header-icons">
-      <button class="button-sign" @click="sign">Sign in</button>
-      <button class="button-sign" @click="sign">Sign in</button>
-    </div>
   </div>
 </template>
-<script>
-export default {
-  auth: false
-};
-</script>
 <style>
 .the-header {
   display: flex;
@@ -31,13 +22,13 @@ export default {
   padding: 0 0.2em;
   margin: 0 0.5em;
   font-size: 1.3em;
-  color: white;
+  color: black;
   text-decoration: none;
   border-radius: 0.5em;
 }
 .header-sai:hover {
-  background: var(--color-darknight);
-  border: 0.4em var(--color-darknight) solid;
+  background: var(--color-forest);
+  border: 0.4em var(--color-forest) solid;
 }
 .header-icons {
   margin: 0 0.4em 0 auto;

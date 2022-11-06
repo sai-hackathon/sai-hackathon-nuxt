@@ -1,7 +1,13 @@
 <template>
   <div id="app">
-    <div>
-      <p>{{ walletAddress }}</p>
+    <img class="header-img" src="../static/header.jpg" />
+
+    <div class="center">
+      <button class="sign-button" @click="sign">sign</button>
+    </div>
+    <img class="header-img" src="../static/people.jpg" />
+
+    <!-- <p>wallet_address: {{ walletAddress }}</p>
       <p>{{ howmany }} USDT</p>
     </div>
     <div>nonce: {{ nonce }}</div>
@@ -11,10 +17,7 @@
       </div>
       <div v-else>
         <p>You dont have token.</p>
-      </div>
-      <button @click="sign">sign</button>
-      <button @click="send">send</button>
-    </div>
+      </div> -->
   </div>
 </template>
 
@@ -46,7 +49,7 @@ export default {
   },
   methods: {
     //
-    handleEthereum: () => {
+    handleEthereum: async function () {
       const { ethereum } = window;
       if (ethereum && ethereum.isMetaMask) {
         // console.log("Ethereum successfully detected!");
@@ -187,3 +190,43 @@ export default {
   }
 };
 </script>
+<style>
+.header-img {
+  width: 100vw;
+  object-fit: cover;
+  border-radius: 4em 4em 0em 0em;
+}
+.sign-button {
+  display: inline-block;
+  outline: none;
+  border-width: 0px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: inherit;
+  font-weight: 500;
+  max-width: 100%;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.1s ease-out 0s,
+    box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+  background: rgb(0, 82, 204);
+  cursor: pointer;
+  height: 3em;
+  line-height: 24px;
+  padding: 0px 12px;
+  vertical-align: middle;
+  width: 5em;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+}
+
+.sign-button:hover {
+  background: rgb(0, 101, 255);
+  text-decoration: inherit;
+  transition-duration: 0s, 0.15s;
+  color: rgb(255, 255, 255);
+}
+.center {
+  text-align: center;
+}
+</style>

@@ -59,11 +59,9 @@ export default {
 .short-text {
   margin: 1em;
   background-color: var(--color-background);
-  color: white;
 }
 .long-text {
   background-color: var(--color-background);
-  color: white;
   margin: 1em;
   height: 5em;
 }
