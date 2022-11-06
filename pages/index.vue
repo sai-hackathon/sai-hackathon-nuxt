@@ -4,6 +4,7 @@
       <p>{{ walletAddress }}</p>
       <p>{{ howmany }} USDT</p>
     </div>
+    <div>nonce: {{ nonce }}</div>
     <div v-if="load">
       <div v-if="howmany > 0">
         <p>HELLO,WORLD!</p>
@@ -19,12 +20,13 @@
 
 <script>
 import Web3 from 'web3';
-
+import axios from 'axios';
 export default {
   name: 'TopPage',
   components: {},
   data: () => ({
     walletAddress: null,
+    nonce: null,
     howmany: null,
     load: false,
     sec_load: false
@@ -32,6 +34,7 @@ export default {
   async mounted() {
     if (window.ethereum) {
       this.walletAddress = await this.getAccount();
+      this.nonce = await this.getNonce();
       this.howmany = await this.getTokenBalance(this.walletAddress);
       this.load = true;
     } else {
@@ -55,13 +58,33 @@ export default {
       }
     },
 
-    // wallet
+    // connect metamask
     getAccount: async function () {
       const accounts = await window.ethereum.request({
         method: 'eth_requestAccounts'
       });
       // console.log(accounts);
+      // this.$store.('setWalletAddress', accounts[0] || '');
       return accounts[0];
+    },
+
+    // connect api
+    getNonce: async function () {
+      var options = {
+        method: 'GET',
+        url: 'http://18.183.118.0:3000/auth/nonce/' + this.walletAddress
+      };
+      axios
+        .request(options)
+        .then(function (response) {
+          console.log(response);
+          console.log(response.data.nonce);
+          return response.data.nonce || '';
+        })
+        .catch(function (error) {
+          console.error(error);
+          return;
+        });
     },
 
     // balance (example call method) (not used)
@@ -97,9 +120,14 @@ export default {
       return balance_result;
     },
 
+    // example sign
     sign: async function () {
       const messagebody = JSON.stringify({
-        domain: {},
+        domain: {
+          // chainId: 1,
+          // name: 'Arigato Java',
+          // version: '1'
+        },
         message: {
           text: this.nonce
         },
@@ -115,7 +143,6 @@ export default {
         })
         .then((res) => {
           console.log(res);
-          // 認証API送信
           return this.apiPostAuthConnect(
             this.walletAddress,
             JSON.parse(messagebody),
@@ -123,7 +150,7 @@ export default {
           );
         })
         .then((res) => {
-          this.$store.commit('setToken', res.data?.token || '');
+          // this.$store.commit('setToken', res.data?.token || '');
           this.$router.push('/transaction');
           console.info(res.data?.token);
         })
@@ -132,7 +159,7 @@ export default {
         });
     },
 
-    // send transaction
+    // example send transaction
     send: async function () {
       const params = [
         {

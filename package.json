@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@kurkle/color": "^0.2.1",
+    "@metamask/detect-provider": "^2.0.0",
     "axios": "^1.1.3",
     "chart.js": "^3.9.1",
     "chartjs-adapter-luxon": "^1.2.0",
