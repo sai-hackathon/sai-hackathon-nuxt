@@ -194,7 +194,6 @@ export default {
 .header-img {
   width: 100vw;
   object-fit: cover;
-  border-radius: 4em 4em 0em 0em;
 }
 .sign-button {
   display: inline-block;
